@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Apresentação</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', sans-serif;
+            background: linear-gradient(to right, #ff00cc, #3333ff);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 50px;
+            display: inline-block;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            margin-top: 30px;
+            width: 60%;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .sidebar {
+            width: 250px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 180px; 
+            left: 20px;
+            color: #fff;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 20px;
+            display: block;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .sidebar ul li a:hover {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffccff;
+        }
+        .main-content {
+            margin-left: 300px;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 70px);
+            flex-direction: column;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        footer {
+            background: rgba(0, 0, 0, 0.6); 
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000; 
+        }
+    </style>
+</head>
+<body>
+
+    <footer>
+        <h1>Minha Apresentação</h1>
+    </footer>
+
+    <nav class="sidebar">
+        <ul>
+            <li><a href="#" onclick="showTab('foto')">Foto</a></li>
+            <li><a href="#" onclick="showTab('quem-sou')">Quem sou eu</a></li> 
+            <li><a href="#" onclick="showTab('onde-vim')">De onde vim</a></li> 
+            <li><a href="#" onclick="showTab('quem-pretendo-ser')">Quem pretendo ser</a></li>
+            <li><a href="#" onclick="showTab('caracteristicas')">Características</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-content">
+        <div class="container">
+            <div id="foto" class="tab-content">
+                <h1>Essa sou eu</h1>
+                <img src="foto.jpg" alt="Minha Foto" style="max-width: 100%; border-radius: 15px;">
+            </div>
+
+            <div id="quem-sou" class="tab-content">
+                <h1>Quem Sou Eu</h1>
+                <p>Sou Geovana Alves Dantas Rosendo, sou uma jovem de 19 anos, moro com os meus avós paternos em Rio Quente-GO, tenho uma irma de sangue de 15 anos, dois irmaos de coração de 5 anos ( os dois) e um novo irmao ou irma a caminho por parte de pai. 
+                    Meus pais são separados,minha mae mora em fortaleza com a minha irmã e meu pai tambem mora em Rio Quente. Sou universitaria, curso TSI e esse site é um trabalho para a materia de Desenvolvimento de sites .</p>
+            </div>
+
+            <div id="onde-vim" class="tab-content">
+                <h1>De Onde Vim</h1>
+                <p>Sou Brasiliense, porém aos 10 anos de idade me mudei para Rio Quente por conta do trabalho do meu pai. Meu pai é técnico em radiologia e passou em um concurso em RQ, e agora ele é o coordenador da sua área. Minha mãe é massagista e manicure.</p>
+            </div>
+
+            <div id="quem-pretendo-ser" class="tab-content">
+                <h1>Quem Pretendo Ser</h1>
+                <p>Independente da minha profissão, eu pretendo ser uma boa pessoa, no qual respeita e ajuda a todos. Quero ser uma boa filha, neta, irmã, esposa e mãe.</p>
+            </div>
+
+            <div id="caracteristicas" class="tab-content">
+                <h1>Características</h1>
+                <ul>
+                    <li>Apaixonada por moda</li>
+                    <li>Toco, Piano, Violão, Ukulele e Flauta</li>
+                    <li>Gosto de me maquiar</li>
+                    <li>Tenho um cachorro, uma gata e um jabuti</li>
+                    <li>Sou flamenguista</li>
+                    <li>Gosto de estudar inglês</li>
+                    <li>sei costurar</li>
+                    <li>Gosto de desenhar croquis</li>
+                    <li>Amo fazer as minhas unhas</li>
+                    <li>Chocolatra</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            const tabs = document.querySelectorAll('.tab-content');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            const activeTab = document.getElementById(tabId);
+            activeTab.classList.add('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            showTab('foto');
+        });
+    </script>
+</body>
+</html>
